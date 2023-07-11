@@ -1,0 +1,11 @@
+A vista de PLAYER está turva, e você está aparentemente deitado no chão, na sua boca um gosto amargo que você não reconhece.
+Suas mao estao presas a uma corrente, e a mesma aparentemente terminava numa parede de concreto. Feno estava espalhado
+pelo chao. A cerca de 10 metros de voce, uma pessoa com um capuz lhe observa.
+NPC: Vejo que você já acordou, vamos logo com isso, se apresse e se ponha de pé ...
+#
+Ficar de pe#0#1
+Continuar deitado#0#3
+Dialogar#0#4
+Ofender#0#6
+#
+Jack
