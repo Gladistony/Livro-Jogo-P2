@@ -9,7 +9,7 @@ public class Capitulo extends GUtil {
     private Scanner scan;
     private Personagem pjPrincipal;
 
-    public void mostrar(){
+    private void mostrar(){
         String temp;
         for (String s: this.Dialogo){
             temp = String.copyValueOf(s.toCharArray());
@@ -41,6 +41,6 @@ public class Capitulo extends GUtil {
         this.pjPrincipal = pj;
     }
     public void executar(){
-        print("ok");
+        this.mostrar()
     }
 }
