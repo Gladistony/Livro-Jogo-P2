@@ -41,6 +41,6 @@ public class Capitulo extends GUtil {
         this.pjPrincipal = pj;
     }
     public void executar(){
-        this.mostrar()
+        this.mostrar();
     }
 }

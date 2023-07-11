@@ -1,6 +1,8 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class App extends GUtil {
@@ -14,7 +16,7 @@ public class App extends GUtil {
         Personagem temppj;
         Scanner scan = new Scanner(System.in);
         Personagem MainPj = new Personagem();
-        Map<String, Personagem> LNpcs = new Map<String, Personagem>
+        Map<String, Personagem> LNpcs = new HashMap<String, Personagem>();
         //Inicializar variaveis
         List<Capitulo> ListaCapitulos = new ArrayList<Capitulo>();
         //Loop de leitura de todos os capitulos
@@ -40,19 +42,18 @@ public class App extends GUtil {
                 break;
             }
         }
-        ListaCapitulos.get(0).mostrar();
         // Ler os personagens 
         caminho = "Npcs/npc";
         for (int index = 0; index < 999999; index++) {
                 arq = new File(caminho+ String.valueOf(index) + ".txt");
             if (arq.exists()){
-                filedata = lerArquivo(args);
+                filedata = lerArquivo(arq);
                 temppj = new Personagem();
                 temppj.set_name(filedata.get(0));
                 temppj.set_hp_str(filedata.get(1));
                 temppj.set_drop(filedata.get(2));
-                temppj.set_att(filedata.get(3), filedata.get(4))
-                LNpcs.put(filedata.get(0), temppj)
+                temppj.set_att(filedata.get(3), filedata.get(4));
+                LNpcs.put(filedata.get(0), temppj);
             }
         }
         // Criar lista ligada de escolha 
