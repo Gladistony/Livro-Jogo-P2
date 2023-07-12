@@ -37,6 +37,7 @@ public class Escolha extends GUtil{
     public Escolha(String str){
         //Formato da escolha: Escolha#Modo#opção  -> Modo 0: Leva a um capitulo opção @ 1: Adiciona o item no npc e leva ao capitulo opção
         //                                                2: Leva a um combate com NPC e depois ao capitulo opção 3:Opcao condicional
+        //                                                4: Causar dano e levar a um capitulo
         List<String> myList = new ArrayList<String>(Arrays.asList(str.split("#")));
         this.texto = myList.get(0);
         this.modo = Integer.parseInt(myList.get(1));

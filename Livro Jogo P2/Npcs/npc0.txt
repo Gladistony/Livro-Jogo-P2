@@ -1,0 +1,5 @@
+Jack
+300
+Mapa do Labirinto
+30
+10

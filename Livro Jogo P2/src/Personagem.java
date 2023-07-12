@@ -4,10 +4,25 @@ public class Personagem extends GUtil{
     private int HpAtual, HpMax;
     private int Atk, Def;
     
-
-
+    public String get_drop(){
+        return this.drop;
+    }
+    public int get_hp(){
+        return HpAtual;
+    }
     public String get_name(){
         return nome;
+    }
+    public int get_atk(){
+        return this.Atk;
+    }
+
+
+    public void set_damage(int dano){
+        this.HpAtual -= Math.max(0, dano-this.Def);
+        if (this.HpAtual < 0){
+            this.HpAtual = 0;
+        }
     }
     public void set_name(String n){
         this.nome = n;

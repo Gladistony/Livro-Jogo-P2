@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class App extends GUtil {
     public static void main(String[] args) throws Exception {
         //Criar Variaveis
-        String caminho = "Capi/capitulo";
+        String caminho;
         File arq;
         List<String> filedata;
         int modo;
@@ -19,7 +19,25 @@ public class App extends GUtil {
         Map<String, Personagem> LNpcs = new HashMap<String, Personagem>();
         //Inicializar variaveis
         List<Capitulo> ListaCapitulos = new ArrayList<Capitulo>();
+        // Ler os personagens 
+        caminho = "Npcs/npc";
+        for (int index = 0; index < 999999; index++) {
+                arq = new File(caminho+ String.valueOf(index) + ".txt");
+            if (arq.exists()){
+                filedata = lerArquivo(arq);
+                temppj = new Personagem();
+                temppj.set_name(filedata.get(0));
+                temppj.set_hp_str(filedata.get(1));
+                temppj.set_drop(filedata.get(2));
+                temppj.set_att(filedata.get(3), filedata.get(4));
+                LNpcs.put(filedata.get(0), temppj);
+            } else {
+                break;
+            }
+        }
+        //print("Numero de NPC carregados: "+LNpcs.size());
         //Loop de leitura de todos os capitulos
+        caminho = "Capi/capitulo";
         for (int index = 0; index < 999999; index++) {
             arq = new File(caminho+ String.valueOf(index) + ".txt");
             if (arq.exists()){
@@ -42,20 +60,11 @@ public class App extends GUtil {
                 break;
             }
         }
-        // Ler os personagens 
-        caminho = "Npcs/npc";
-        for (int index = 0; index < 999999; index++) {
-                arq = new File(caminho+ String.valueOf(index) + ".txt");
-            if (arq.exists()){
-                filedata = lerArquivo(arq);
-                temppj = new Personagem();
-                temppj.set_name(filedata.get(0));
-                temppj.set_hp_str(filedata.get(1));
-                temppj.set_drop(filedata.get(2));
-                temppj.set_att(filedata.get(3), filedata.get(4));
-                LNpcs.put(filedata.get(0), temppj);
-            }
+        // Criar lista ligada de escolha em cada capitulo
+        for (Capitulo cap: ListaCapitulos){
+            cap.ativarEscolhas(ListaCapitulos);
         }
-        // Criar lista ligada de escolha 
+        //Iniciar a execulção do programa
+        ListaCapitulos.get(0).executar();
     }
 }
