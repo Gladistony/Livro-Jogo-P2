@@ -1,0 +1,8 @@
+PLAYER junta forcas e se prepara para levanta, tentando ficar de pe na frente da pessoa
+NPC: Nao vai falar nada? voce nao sabe falar?
+#
+Claro que sei#0#8
+Dar nos ombros#0#8
+Palavras sem sentido#0#2
+#
+Jack

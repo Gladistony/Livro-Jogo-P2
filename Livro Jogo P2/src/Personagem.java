@@ -18,8 +18,8 @@ public class Personagem extends GUtil{
     }
 
 
-    public void set_damage(int dano){
-        this.HpAtual -= Math.max(0, dano-this.Def);
+    public void set_damage(long l){
+        this.HpAtual -= Math.max(0, l-this.Def);
         if (this.HpAtual < 0){
             this.HpAtual = 0;
         }

@@ -51,7 +51,7 @@ public class App extends GUtil {
                     } else if (modo == 1) {
                         tempcap.addEscolha(str);
                     } else {
-                        tempcap.set_NpcName(str);
+                        tempcap.set_NpcName(LNpcs.get(str));
                     }
                 }
                 ListaCapitulos.add(tempcap);

@@ -3,7 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Escolha extends GUtil{
-    private String texto, npc, opcao;
+    private String texto, opcao;
+    private Capitulo pai;
     private Capitulo proximo;
     private int modo;
     private boolean condicional;
@@ -19,7 +20,7 @@ public class Escolha extends GUtil{
         this.proximo = cap;
     }
     public String get_npc_nome(){
-        return this.npc;
+        return this.pai.get_NpcName();
     }
     public String get_texto(){
         return this.texto;
@@ -32,16 +33,24 @@ public class Escolha extends GUtil{
         }
     }
     public void next(){
+        if (this.modo == 1) {
+            //Adicionar item ao inventario
+        } else if (this.modo == 4){
+            this.pai.aplicarDano(1);
+        } else if (this.modo == 5){
+            this.pai.aplicarDano(0.5);
+        }
         this.proximo.executar();
     }
-    public Escolha(String str){
+    public Escolha(String str, Capitulo pai){
         //Formato da escolha: Escolha#Modo#opção  -> Modo 0: Leva a um capitulo opção @ 1: Adiciona o item no npc e leva ao capitulo opção
         //                                                2: Leva a um combate com NPC e depois ao capitulo opção 3:Opcao condicional
-        //                                                4: Causar dano e levar a um capitulo
+        //                                                4: Causar dano e levar a um capitulo 5: Causar Metade do dano
         List<String> myList = new ArrayList<String>(Arrays.asList(str.split("#")));
         this.texto = myList.get(0);
         this.modo = Integer.parseInt(myList.get(1));
         this.opcao = myList.get(2);
         this.condicional = this.modo == 3;
+        this.pai = pai;
     }
 }

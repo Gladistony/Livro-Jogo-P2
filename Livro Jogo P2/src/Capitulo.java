@@ -5,15 +5,19 @@ import java.util.Scanner;
 public class Capitulo extends GUtil {
     private List<String> Dialogo;
     private List<Escolha> Escolha;
-    private String nameNPC;
+    private Personagem nameNPC;
     private Scanner scan;
     private Personagem pjPrincipal;
 
+
+    public void aplicarDano(double d){
+        this.pjPrincipal.set_damage(Math.round(d*nameNPC.get_atk()));
+    }
     private void mostrar(){
         String temp;
         for (String s: this.Dialogo){
             temp = String.copyValueOf(s.toCharArray());
-            temp = temp.replace("NPC", nameNPC);
+            temp = temp.replace("NPC", nameNPC.get_name());
             temp = temp.replace("PLAYER", pjPrincipal.get_name());
             print(temp);
         }
@@ -22,13 +26,13 @@ public class Capitulo extends GUtil {
         }
     }
     public String get_NpcName(){
-        return this.nameNPC;
+        return this.nameNPC.get_name();
     }
-    public void set_NpcName(String str){
+    public void set_NpcName(Personagem str){
         this.nameNPC = str;
     }
     public void addEscolha(String str){
-        Escolha.add(new Escolha(str));
+        Escolha.add(new Escolha(str, this));
     }
     public void addDialogo(String dia){
         this.Dialogo.add(dia);

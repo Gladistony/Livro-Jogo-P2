@@ -1,5 +1,5 @@
 Jack
 300
 Mapa do Labirinto
-30
+100
 10

@@ -1,0 +1,8 @@
+NPC: ...
+A pessoa armada entao saca uma arma e aperta o gatilho, lhe acertando um unico tiro na perna
+NPC: Voce nao vale o meu tempo, te deixarei aqui para aprodecer ...
+A pessoa entao da as costas e lhe deixa la no local, sangrando
+#
+Continuar#5#9
+#
+Jack

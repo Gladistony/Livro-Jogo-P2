@@ -1,0 +1,8 @@
+Reinicio do 0
+#
+Ficar de pe#0#1
+Continuar deitado#0#3
+Dialogar#0#4
+Ofender#0#6
+#
+Jack
