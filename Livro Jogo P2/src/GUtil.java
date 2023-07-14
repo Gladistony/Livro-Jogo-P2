@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class GUtil {
+public abstract class GUtil {
     public static void print(String txt){
         System.out.println(txt);
         try {

@@ -55,18 +55,24 @@ public class Capitulo extends GUtil {
         return -1;
     }
     private int escolher(){
-        String ler = this.scan.nextLine();
-        int id = verificar_id(ler);
-        while (id < 0){
-            print("Opção invalida, tente novamente!!");
-            ler = this.scan.nextLine();
-            id = verificar_id(ler);
+        if (this.Escolha.size() > 0){
+            String ler = this.scan.nextLine();
+            int id = verificar_id(ler);
+            while (id < 0){
+                print("Opção invalida, tente novamente!!");
+                ler = this.scan.nextLine();
+                id = verificar_id(ler);
+            }
+            return id;
+        } else {
+            return -1;
         }
-        return id;
+        
     }
     public void executar(){
         this.mostrar();
-        this.Escolha.get(escolher()).next();
+        int retorno = this.escolher();
+        if (retorno >= 0) this.Escolha.get(retorno).next();
     }
     public void ativarEscolhas(List<Capitulo> ListaCapitulos){
         for (Escolha esc: this.Escolha){
