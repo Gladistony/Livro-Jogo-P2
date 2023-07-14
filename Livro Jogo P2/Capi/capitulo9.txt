@@ -2,7 +2,7 @@ Depois de um tempo na sua sela so, PLAYER encontra uma chave em meio a palha e a
 Seguindo pela unica porta voce da de cara com uma janela que te leva ate o lado de fora, voce pode pular essa
 janela e cair numa carroca de feno que ha no chao ou descer pela escada rumo ao labirinto
 #
-Pular janela#0#9
+Pular janela#5#15
 Descer escadas#0#10
 #
 Jack
