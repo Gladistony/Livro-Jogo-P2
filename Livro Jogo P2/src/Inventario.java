@@ -5,7 +5,12 @@ import java.util.List;
 public class Inventario extends GUtil implements Serializable {
     private List<String> List;
 
-
+    public void apagarItem(String i){
+        List.remove(i);
+    }
+    public void compactar(){
+        List.removeIf(x -> x.length() < 2);
+    }
     public String get_Data(){
         String ret = "";
         for (String s :List){

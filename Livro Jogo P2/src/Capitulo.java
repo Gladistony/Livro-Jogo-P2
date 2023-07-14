@@ -9,6 +9,10 @@ public class Capitulo extends GUtil {
     private Scanner scan;
     private Personagem pjPrincipal;
 
+
+    public void excluirItemInventario(String item){
+        this.pjPrincipal.apagarItem(item);
+    }
     public void salvarInventario(){
         pjPrincipal.saveData();
     }
@@ -100,5 +104,9 @@ public class Capitulo extends GUtil {
         for (Escolha esc: this.Escolha){
             esc.set_Capitulo(ListaCapitulos.get(esc.get_id_capitulo()));
         }
+    }
+    public void currarMonstro() {
+        this.pjPrincipal.recuperar_Vida(this.nameNPC.get_atk()*5);
+        this.pjPrincipal.showData();
     }
 }

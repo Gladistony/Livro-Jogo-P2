@@ -23,6 +23,14 @@ public class Personagem extends GUtil implements Serializable{
     public int getIDHistoria() {
         return IDHistoria;
     }
+    public void apagarItem(String i){
+        this.Bag.apagarItem(i);
+    }
+    public void recuperar_Vida(int valor){
+        this.HpAtual += valor;
+        if (this.HpAtual > this.HpMax) this.HpAtual = this.HpMax;
+        print(nome + " recuperou "+ valor +" pontos de vida");
+    }
 
     public void setIDHistoria(int iDHistoria) {
         IDHistoria = iDHistoria;
@@ -114,16 +122,24 @@ public class Personagem extends GUtil implements Serializable{
     public void set_Vitoria(Personagem inimigo){
         String [] loot = inimigo.get_premiacao();
         Bag.Add(loot[3]);
-        int ganhoMax = Math.round(Integer.parseInt(loot[0]) / 10 ); 
+        int ganhoMax = Math.max(Math.round((Integer.parseInt(loot[0]) - this.HpMax) / 10),0); 
         this.HpMax += ganhoMax;
         this.HpAtual += ganhoMax;
-        this.Atk += Math.round(Integer.parseInt(loot[1]) / 5 ); 
-        this.Def += Math.round(Integer.parseInt(loot[2]) / 5 ); 
+        this.Atk += Math.max(Math.round((Integer.parseInt(loot[1]) - this.Atk) / 3), 0); 
+        this.Def += Math.max(Math.round((Integer.parseInt(loot[2]) - this.Def) / 3), 0);
     }
 
-    public void set_damage(long l){
+    public void set_real_damage(long l){
         print(this.nome + " recebeu "+ l + " pontos de dano");
-        this.HpAtual -= Math.max(0, l-this.Def);
+        this.HpAtual -= l;
+        if (this.HpAtual < 0){
+            this.HpAtual = 0;
+        }
+    }
+    public void set_damage(long l){
+        long danorec = Math.max(0, l-this.Def);
+        print(this.nome + " recebeu "+ danorec + " pontos de dano");
+        this.HpAtual -= danorec;
         if (this.HpAtual < 0){
             this.HpAtual = 0;
         }
@@ -147,6 +163,7 @@ public class Personagem extends GUtil implements Serializable{
     }
     public void showData() {
         if (vivo()){
+            Bag.compactar();
             print(this.nome +" - "+ this.HpAtual + " / "+ this.HpMax +" Inventario: "+Bag.listar());
         } else {
             print(this.nome + " está morto");

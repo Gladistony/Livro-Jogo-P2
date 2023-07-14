@@ -1,0 +1,8 @@
+Um pedaço da arvore se solta e então começa a se mover na sua direção:
+NPC: ......
+#
+Lutar#2#12
+Mostra o mapa do labirinto#3#18@Mapa do Labirinto
+Mostra uma semente#3#18@Semente de Esforço
+#
+Planta Solta
