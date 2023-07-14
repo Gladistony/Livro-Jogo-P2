@@ -8,11 +8,12 @@ public class Escolha extends GUtil{
     private Capitulo proximo;
     private int modo;
     private boolean condicional;
+    private ArrayList<String> configEscolhas;
 
     public boolean verificar_escolha_possivel(){
         if (!condicional) return true;
         else {
-            return false;
+            return pai.jogador_TemoItem(configEscolhas.get(1));
             //Implementar codigo de verificação da escolha
         }
     }
@@ -34,13 +35,18 @@ public class Escolha extends GUtil{
     }
     public void next(){
         if (this.modo == 1) {
-            //Adicionar item ao inventario
+            this.pai.add_Drop();
+        } else if (this.modo == 2){
+            this.pai.start_Combate();
         } else if (this.modo == 4){
             this.pai.aplicarDano(1);
         } else if (this.modo == 5){
             this.pai.aplicarDano(0.5);
         }
-        this.proximo.executar();
+        //Verificar se o personagem ainda está vivo antes de passar pra o proximo capitulo
+        if (this.pai.ainda_TemJogo()) this.proximo.executar(); else {
+            printCentral("Game Over!!!!");
+        }
     }
     public Escolha(String str, Capitulo pai){
         //Formato da escolha: Escolha#Modo#opção  -> Modo 0: Leva a um capitulo opção @ 1: Adiciona o item no npc e leva ao capitulo opção
@@ -52,5 +58,6 @@ public class Escolha extends GUtil{
         this.opcao = myList.get(2);
         this.condicional = this.modo == 3;
         this.pai = pai;
+        if (this.condicional) this.configEscolhas = new ArrayList<String>(Arrays.asList(this.opcao.split("@")));
     }
 }

@@ -29,8 +29,13 @@ public class Personagem extends GUtil{
         Res[3] = drop;
         return Res;
     }
+    public boolean verificarIventario(String i){
+        return Bag.temo_Item(i);
+    }
 
-
+    public void set_Item(String d){
+        this.Bag.Add(d);
+    }
     public void set_Vitoria(Personagem inimigo){
         String [] loot = inimigo.get_premiacao();
         Bag.Add(loot[3]);

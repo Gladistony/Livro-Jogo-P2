@@ -9,6 +9,21 @@ public class Capitulo extends GUtil {
     private Scanner scan;
     private Personagem pjPrincipal;
 
+    public boolean jogador_TemoItem(String item){
+        return pjPrincipal.verificarIventario(item);
+    }
+
+    public boolean ainda_TemJogo(){
+        return pjPrincipal.vivo();
+    }
+
+    public void add_Drop(){
+        pjPrincipal.set_Item(nameNPC.get_drop());
+    }
+    public void start_Combate(){
+        Batalha luta = new Batalha(pjPrincipal, nameNPC, scan);
+        luta.Run();
+    }
 
     public void aplicarDano(double d){
         this.pjPrincipal.set_damage(Math.round(d*nameNPC.get_atk()));
