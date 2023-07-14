@@ -1,8 +1,8 @@
-Reinicio do 0
+Depois de um tempo na sua sela so, PLAYER encontra uma chave em meio a palha e a usa para se soltar
+Seguindo pela unica porta voce da de cara com uma janela que te leva ate o lado de fora, voce pode pular essa
+janela e cair numa carroca de feno que ha no chao ou descer pela escada rumo ao labirinto
 #
-Ficar de pe#0#1
-Continuar deitado#0#3
-Dialogar#0#4
-Ofender#0#6
+Pular janela#0#9
+Descer escadas#0#10
 #
 Jack

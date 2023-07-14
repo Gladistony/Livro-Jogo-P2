@@ -1,8 +1,8 @@
 PLAYER se poe de pe e entao comeca a conversar com a pessoa
 NPC: Me mandaram aqui lhe soltar, mas ... voce nao parece tao importante assim
 #
-Me solta logo#0#8
+Me solta logo#1#8
 Seu trabalho#0#5
-Porque esta enrrolando pra me soltar?#0#8
+Porque esta enrrolando pra me soltar?#1#8
 #
 Jack

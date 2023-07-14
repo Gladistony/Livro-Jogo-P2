@@ -1,13 +1,88 @@
-public class Personagem extends GUtil{
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Personagem extends GUtil implements Serializable{
     private String nome = "X";
     private String drop;
     private int HpAtual, HpMax;
     private int Atk, Def;
     private Inventario Bag;
+    private int IDHistoria;
+    private String dataInventario;
     
+    public String getDataInventario() {
+        return dataInventario;
+    }
+
+    public int getIDHistoria() {
+        return IDHistoria;
+    }
+
+    public void setIDHistoria(int iDHistoria) {
+        IDHistoria = iDHistoria;
+    }
+    public int getDef() {
+        return Def;
+    }
+    public int getHpMax() {
+        return HpMax;
+    }
+    public void saveData(){
+        this.dataInventario = this.Bag.get_Data();
+        try {
+            FileOutputStream file = new FileOutputStream("dadosSalvo.dat");
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            out.writeObject(this);
+            out.close();
+            file.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public List<String> getBoxItem(){
+        return Arrays.asList(Bag.get_Data().split("#"));
+    }
+    public void loadData(){
+        Personagem ret;
+        try {
+            FileInputStream file = new FileInputStream("dadosSalvo.dat");
+            ObjectInputStream in = new ObjectInputStream(file);
+            ret = (Personagem) in.readObject();
+            this.nome = ret.get_name();
+            this.HpMax = ret.getHpMax();
+            this.HpAtual = ret.get_hp();
+            this.Atk = ret.get_atk();
+            this.Def = ret.getDef();
+            this.IDHistoria = ret.getIDHistoria();
+            for (String item : ret.getBoxItem()) {
+                this.Bag.Add(item);
+            }
+            in.close();
+            file.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
     public Personagem() {
         this.Bag = new Inventario();
+        this.IDHistoria = 0;
+    }
+
+    public void criarJogaodor(Scanner scan){
+        print("Digite o nome do seu personagem principal");
+        this.nome = scan.nextLine();
+        this.Atk = 20;
+        this.HpMax = 100;
+        this.HpAtual = this.HpMax;
+        this.Def = 0;
+        this.drop = "";
     }
     public String get_drop(){
         return this.drop;
@@ -47,6 +122,7 @@ public class Personagem extends GUtil{
     }
 
     public void set_damage(long l){
+        print(this.nome + " recebeu "+ l + " pontos de dano");
         this.HpAtual -= Math.max(0, l-this.Def);
         if (this.HpAtual < 0){
             this.HpAtual = 0;

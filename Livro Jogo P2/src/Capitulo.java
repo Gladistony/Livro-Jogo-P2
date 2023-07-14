@@ -9,6 +9,10 @@ public class Capitulo extends GUtil {
     private Scanner scan;
     private Personagem pjPrincipal;
 
+    public void salvarInventario(){
+        pjPrincipal.saveData();
+    }
+
     public boolean jogador_TemoItem(String item){
         return pjPrincipal.verificarIventario(item);
     }
@@ -87,7 +91,10 @@ public class Capitulo extends GUtil {
     public void executar(){
         this.mostrar();
         int retorno = this.escolher();
-        if (retorno >= 0) this.Escolha.get(retorno).next();
+        if (retorno >= 0) {
+            this.pjPrincipal.setIDHistoria(this.Escolha.get(retorno).get_id_capitulo());
+            this.Escolha.get(retorno).next();
+        }
     }
     public void ativarEscolhas(List<Capitulo> ListaCapitulos){
         for (Escolha esc: this.Escolha){

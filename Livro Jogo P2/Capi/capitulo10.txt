@@ -1,0 +1,7 @@
+PLAYER chega até a entrada do que parece ser um grande labirinto.
+#
+Entra no Labirinto#0#11
+Voltar#0#9
+Usar o mapa#3#12@Mapa do Labirinto
+#
+Minotauro

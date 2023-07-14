@@ -43,6 +43,7 @@ public class Escolha extends GUtil{
         } else if (this.modo == 5){
             this.pai.aplicarDano(0.5);
         }
+        this.pai.salvarInventario();
         //Verificar se o personagem ainda está vivo antes de passar pra o proximo capitulo
         if (this.pai.ainda_TemJogo()) this.proximo.executar(); else {
             printCentral("Game Over!!!!");

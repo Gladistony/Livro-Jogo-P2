@@ -1,0 +1,8 @@
+PLAYER adentra pelo labirinto ate que encontra um NPC
+Ele parecia raivoso, mas ainda assim lhe observa, esperando sua ação
+#
+Lutar#2#12
+Fugir#5#14
+Tentar Dialogar#4#13
+#
+Minotauro

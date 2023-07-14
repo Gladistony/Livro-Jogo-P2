@@ -1,0 +1,6 @@
+A tentativa de dialogo falha e o inimigo lhe golpeia com força
+#
+Lutar#2#12
+Fugir#5#14
+#
+Minotauro

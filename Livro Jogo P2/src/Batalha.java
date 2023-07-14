@@ -67,5 +67,7 @@ public class Batalha extends GUtil {
         } else {
             print("Empate!!");
         }
+        Jogador.showData();
+        Inimigo.showData();
     }
 }

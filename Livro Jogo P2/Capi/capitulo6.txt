@@ -2,7 +2,7 @@ PLAYER simplesmente se levanta e manda a pessoa se 'F@d&r'
 A pessoa retira o capuz devagar e entao sem falar muito saca uma pistola e aponta para voce
 NPC: O que voce falou?
 #
-Reafirma#0#8
+Reafirma#1#8
 Pedir Desculpa#0#7
 #
 Jack

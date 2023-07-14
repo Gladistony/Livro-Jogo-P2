@@ -1,9 +1,18 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Inventario extends GUtil {
+public class Inventario extends GUtil implements Serializable {
     private List<String> List;
 
+
+    public String get_Data(){
+        String ret = "";
+        for (String s :List){
+            ret = ret +"#" +  s;
+        }
+        return ret;
+    }
     public String listar(){
         String ret = "";
         for (String s :List){

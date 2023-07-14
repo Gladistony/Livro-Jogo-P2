@@ -17,6 +17,8 @@ public class App extends GUtil {
         Scanner scan = new Scanner(System.in);
         Personagem MainPj = new Personagem();
         Map<String, Personagem> LNpcs = new HashMap<String, Personagem>();
+        String[] lista = {"Sim", "Nao"};
+        int resposta;
         //Inicializar variaveis
         List<Capitulo> ListaCapitulos = new ArrayList<Capitulo>();
         // Ler os personagens 
@@ -64,7 +66,28 @@ public class App extends GUtil {
         for (Capitulo cap: ListaCapitulos){
             cap.ativarEscolhas(ListaCapitulos);
         }
-        //Iniciar a execulção do programa
-        ListaCapitulos.get(0).executar();
+        //Verifiar se existe jogo salvo
+        arq = new File("dadosSalvo.dat");
+        if (arq.exists()){
+            resposta = escolhas(scan,"Um arquivo salvo foi detectado, deseja carregar os dados do mesmo?", lista);
+            if (resposta == 1) {
+                MainPj.loadData();
+                ListaCapitulos.get(MainPj.getIDHistoria()).executar();
+            } else {
+                //Iniciar a execulção do programa
+                MainPj.criarJogaodor(scan);
+                ListaCapitulos.get(0).executar();
+            }
+        } else {
+            //Iniciar a execulção do programa
+            MainPj.criarJogaodor(scan);
+            ListaCapitulos.get(0).executar();
+        }
+        //Loop de retorna ao jogo
+        //Finalização/Opção de reiniciar o jogo
+        print("Obrigado por jogar");
+        resposta = escolhas(scan,"Deseja começar de novo?", lista);
+        if (resposta == 1) main(args);
+        scan.close();
     }
 }
