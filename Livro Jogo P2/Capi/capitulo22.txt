@@ -1,0 +1,5 @@
+PLAYER entrega ao NPC o seu chifre de minotauro e em troca recebe um aumento em seu Atributo HP
+#
+Continuar#10#19
+#
+Vendedor da Praia

@@ -5,4 +5,4 @@ janela e cair numa carroca de feno que ha no chao ou descer pela escada rumo ao 
 Pular janela#5#15
 Descer escadas#0#10
 #
-Jack
+????

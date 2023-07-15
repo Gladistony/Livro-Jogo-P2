@@ -1,0 +1,12 @@
+Depois de passar pela criatura, você encontra o que parece ser um templo no meio da floresta
+Assim que chega ali, você dá de cara com a mesma figura misteriosa de antes. Assim que lhe ver
+ele retira o capuz e se apresenta:
+????:  --Olá de novo, vejo que você conseguiu chegar até aqui. Meu nome por sinal é NPC
+NPC: --Então, o que vai ser dessa vez?
+#
+Eu quero respostas#0#29
+Eu nunca precisei de sua ajuda#3#31@Mapa do Labirinto
+Avançar e atacar ele#2#30
+Dialogar#0#29
+#
+Jack

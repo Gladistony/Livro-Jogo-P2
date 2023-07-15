@@ -7,6 +7,7 @@ public class Inventario extends GUtil implements Serializable {
 
     public void apagarItem(String i){
         List.remove(i);
+        print("O item '"+i+"'' foi removido do inventario");
     }
     public void compactar(){
         List.removeIf(x -> x.length() < 2);
@@ -27,6 +28,7 @@ public class Inventario extends GUtil implements Serializable {
     }
     public void Add(String item){
         List.add(item);
+        print("O item '"+item+"'' foi adicionado ao inventario");
     }
     public Inventario(){
         List = new ArrayList<String>();

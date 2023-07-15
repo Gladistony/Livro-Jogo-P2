@@ -1,0 +1,10 @@
+A floresta era densa e escura, antes de seguir, bem na sua frente, o ar começa a
+tremular e então uma figura sinistra aparece
+NPC: --- Vá embora, não se aproxima ou você irá enfrenter as consequencias ...
+#
+Voltar#0#12
+Avançar devagar#2#24
+Tentar dialogar#0#25
+Correr ignorando o aviso#0#24
+#
+Espirito da Floresta

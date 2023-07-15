@@ -1,0 +1,5 @@
+Colocando a Insignia, o piloto automatico é ativado, lhe levando de volta ao
+continente de forma segura.
+#
+#
+Queda

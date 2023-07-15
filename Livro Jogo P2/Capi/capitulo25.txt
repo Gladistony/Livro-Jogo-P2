@@ -1,0 +1,7 @@
+NPC: --Esse é seu ultimo aviso humano, se aproxime novamente e enão terei piedade!
+#
+Avancar novamente#2#24
+Voltar#0#12
+Nao sou uma ameaca#0#26
+#
+Espirito da Floresta

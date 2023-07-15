@@ -1,0 +1,7 @@
+NPC: --Bla bla bla, isso tudo é besteira. Sua memoria voltará com o tempo
+NPC: --e então tudo fará sentido, mas por enquanto, vamos dançar um pouco
+O inimigo avança contra você, lhe atacando ...
+#
+Continuar#2#30
+#
+Espirito da Floresta

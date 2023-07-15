@@ -10,6 +10,15 @@ public class Capitulo extends GUtil {
     private Personagem pjPrincipal;
 
 
+    public void bonus_Atk(){
+        this.pjPrincipal.add_Atk(nameNPC.get_atk());
+    }
+    public void bonus_Def(){
+        this.pjPrincipal.add_Def(nameNPC.getDef());
+    }
+    public void bonus_HP(){
+        this.pjPrincipal.add_Hp(nameNPC.getHpMax());
+    }
     public void excluirItemInventario(String item){
         this.pjPrincipal.apagarItem(item);
     }

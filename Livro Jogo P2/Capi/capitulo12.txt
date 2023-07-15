@@ -2,8 +2,8 @@ Você consegue deixar o labirinto vivo e se depara com uma densa floresta
 Havia um caminho que levava até uma trifurcação antes da entrada
 da mesma e uma placa indicava 3 opções de caminho eram elas:
 #
-Praia#0#12
-Floresta de morte#0#12
+Praia#0#19
+Floresta de morte#0#23
 Campo de Treinamento#0#16
 #
 Minotauro

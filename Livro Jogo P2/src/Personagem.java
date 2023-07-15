@@ -53,6 +53,17 @@ public class Personagem extends GUtil implements Serializable{
             e.printStackTrace();
         }
     }
+    public void add_Atk( int v){
+        this.Atk += v;   
+    }
+    public void add_Def(int v){
+        this.Def += v;
+    }
+    public void add_Hp(int v){
+        this.HpAtual += v;
+        this.HpMax += v;
+    }
+
     public List<String> getBoxItem(){
         return Arrays.asList(Bag.get_Data().split("#"));
     }

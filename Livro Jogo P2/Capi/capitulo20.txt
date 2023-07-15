@@ -1,0 +1,5 @@
+PLAYER entrega ao NPC o seu mapa e em troca recebe um aumento em seu Atributo ATK
+#
+Continuar#8#19
+#
+Vendedor da Praia

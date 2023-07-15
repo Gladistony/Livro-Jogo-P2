@@ -1,0 +1,5 @@
+PLAYER entrega ao NPC o sua semente e em troca recebe um aumento em seu Atributo Def
+#
+Continuar#9#19
+#
+Vendedor da Praia

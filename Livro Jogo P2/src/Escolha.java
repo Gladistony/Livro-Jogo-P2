@@ -53,6 +53,12 @@ public class Escolha extends GUtil{
             this.pai.aplicarDano(0.5);
         } else if (this.modo == 7){
             this.pai.currarMonstro();
+        } else if (this.modo == 8){
+            this.pai.bonus_Atk();
+        } else if (this.modo == 9){
+            this.pai.bonus_Def();
+        } else if (this.modo == 10){
+            this.pai.bonus_HP();
         }
         this.pai.salvarInventario();
         //Verificar se o personagem ainda está vivo antes de passar pra o proximo capitulo

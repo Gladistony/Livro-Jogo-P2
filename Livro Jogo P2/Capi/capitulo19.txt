@@ -1,0 +1,10 @@
+PLAYER chega até a praia e se depara com o que parece uma loja que vende itens
+Se aproximando da mesma, o vendedor lhe encara, esperando você informa o que quer
+fazer:
+#
+Voltar#0#12
+Trocar Mapa#3#20@Mapa do Labirinto
+Trocar Semente#3#21@Semente de Esforço
+Trocar Chifre#3#22@Chifre de Minotauro
+#
+Vendedor da Praia
