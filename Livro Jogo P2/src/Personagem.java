@@ -26,11 +26,6 @@ public class Personagem extends GUtil implements Serializable{
     public void apagarItem(String i){
         this.Bag.apagarItem(i);
     }
-    public void recuperar_Vida(int valor){
-        this.HpAtual += valor;
-        if (this.HpAtual > this.HpMax) this.HpAtual = this.HpMax;
-        print(nome + " recuperou "+ valor +" pontos de vida");
-    }
 
     public void setIDHistoria(int iDHistoria) {
         IDHistoria = iDHistoria;
@@ -139,6 +134,8 @@ public class Personagem extends GUtil implements Serializable{
         this.Atk += Math.max(Math.round((Integer.parseInt(loot[1]) - this.Atk) / 3), 0); 
         this.Def += Math.max(Math.round((Integer.parseInt(loot[2]) - this.Def) / 3), 0);
     }
+    //------------------Funções de ajuste de HP---------------------------------
+
 
     public void set_real_damage(long l){
         print(this.nome + " recebeu "+ l + " pontos de dano");
@@ -155,6 +152,14 @@ public class Personagem extends GUtil implements Serializable{
             this.HpAtual = 0;
         }
     }
+    public void recuperar_Vida(int valor){
+        this.HpAtual += valor;
+        if (this.HpAtual > this.HpMax) this.HpAtual = this.HpMax;
+        print(nome + " recuperou "+ valor +" pontos de vida");
+    }
+
+    //------------------------------------------------------------------------
+    
     public void set_name(String n){
         this.nome = n;
     }
