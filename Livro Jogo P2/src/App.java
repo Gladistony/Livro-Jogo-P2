@@ -22,7 +22,7 @@ public class App extends GUtil {
         //Inicializar variaveis
         List<Capitulo> ListaCapitulos = new ArrayList<Capitulo>();
         // Ler os personagens 
-        caminho = "Npcs/npc";
+        caminho = "Rsc/Npcs/npc";
         for (int index = 0; index < 999999; index++) {
                 arq = new File(caminho+ String.valueOf(index) + ".txt");
             if (arq.exists()){
@@ -39,7 +39,7 @@ public class App extends GUtil {
         }
         //print("Numero de NPC carregados: "+LNpcs.size());
         //Loop de leitura de todos os capitulos
-        caminho = "Capi/capitulo";
+        caminho = "Rsc/Capi/capitulo";
         for (int index = 0; index < 999999; index++) {
             arq = new File(caminho+ String.valueOf(index) + ".txt");
             if (arq.exists()){
