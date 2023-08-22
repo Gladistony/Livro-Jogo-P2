@@ -3,11 +3,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Capitulo extends GUtil {
-    private List<String> Dialogo;
-    private List<Escolha> Escolha;
-    private Personagem nameNPC;
-    private Scanner scan;
-    private Personagem pjPrincipal;
+    protected List<String> Dialogo;
+    protected List<Escolha> Escolha;
+    protected Personagem nameNPC;
+    protected Scanner scan;
+    protected Personagem pjPrincipal;
 
 
     public void bonus_Atk(){
@@ -45,7 +45,7 @@ public class Capitulo extends GUtil {
     public void aplicarDano(double d){
         this.pjPrincipal.set_damage(Math.round(d*nameNPC.get_atk()));
     }
-    private void mostrar(){
+    protected void mostrar(){
         String temp;
         for (String s: this.Dialogo){
             temp = String.copyValueOf(s.toCharArray());
@@ -75,7 +75,7 @@ public class Capitulo extends GUtil {
         this.scan = s;
         this.pjPrincipal = pj;
     }
-    private int verificar_id(String s){
+    protected int verificar_id(String s){
         int cont = 0;
         for (Escolha esc: this.Escolha){
             if (esc.get_texto().equalsIgnoreCase(s) && esc.verificar_escolha_possivel()){
@@ -86,7 +86,7 @@ public class Capitulo extends GUtil {
         }
         return -1;
     }
-    private int escolher(){
+    protected int escolher(){
         if (this.Escolha.size() > 0){
             String ler = this.scan.nextLine();
             int id = verificar_id(ler);

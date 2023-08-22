@@ -45,6 +45,7 @@ public class App extends GUtil {
             if (arq.exists()){
                 filedata = lerArquivo(arq);
                 tempcap = new Capitulo(scan, MainPj);
+                String imageString = "";
                 modo = 0;
                 for (String str: filedata){
                     if (str.equals("#")) modo++;
@@ -52,9 +53,17 @@ public class App extends GUtil {
                         tempcap.addDialogo(str);
                     } else if (modo == 1) {
                         tempcap.addEscolha(str);
-                    } else {
+                    } else if (modo == 2) {
                         tempcap.set_NpcName(LNpcs.get(str));
+                    } else if (modo == 3) {
+                        imageString += str + "\n";
                     }
+                }
+                if (imageString.length() >= 1 ){
+                    CapituloImagem tempcapimg = new CapituloImagem(scan, MainPj);
+                    tempcapimg.receberCapitulo(tempcap);
+                    tempcapimg.set_imagem(imageString);
+                    tempcap = tempcapimg;
                 }
                 ListaCapitulos.add(tempcap);
             }
