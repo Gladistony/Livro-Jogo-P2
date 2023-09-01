@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
 public class NovoPersonagem extends GUtil {
 
     @FXML
@@ -26,7 +27,6 @@ public class NovoPersonagem extends GUtil {
             Stage  stage = (Stage) botao.getScene().getWindow();
             stage.getScene().setRoot(root);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

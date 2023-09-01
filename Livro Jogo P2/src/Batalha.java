@@ -99,6 +99,7 @@ public class Batalha extends GUtil {
         grid.add(defender, 0, 5);
         grid.add(resultado, 0, 6);
         dialog.getDialogPane().setContent(grid);
+        dialog.getDialogPane().setMinWidth(500);
         return dialog.showAndWait().orElse(false);
     }
 

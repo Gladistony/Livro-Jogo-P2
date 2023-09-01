@@ -39,6 +39,7 @@ public class App extends Application {
     public void start(Stage primStage) throws Exception {
         primStage.setTitle("Livro Jogo, Projeto de P2");
         GUtil.loadData("Rsc");
+        //primStage.setOnShown(event -> );
         /*StackPane root = new StackPane();
         primStage.setScene(new Scene(root, 300, 250));
         primStage.show(); */
