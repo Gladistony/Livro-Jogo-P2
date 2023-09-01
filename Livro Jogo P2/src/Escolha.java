@@ -11,6 +11,15 @@ public class Escolha extends GUtil{
     private boolean condicional;
     private ArrayList<String> configEscolhas;
 
+    public Capitulo getProximo() {
+        next();
+        if (GUtil.jogoContinua()) return proximo;
+        else {
+            print("Game Over!!!!");
+            return null;
+        }
+    }
+
     public boolean verificar_escolha_possivel(){
         if (!condicional){
             if (this.modo == 6){
@@ -62,9 +71,9 @@ public class Escolha extends GUtil{
         }
         this.pai.salvarInventario();
         //Verificar se o personagem ainda está vivo antes de passar pra o proximo capitulo
-        if (this.pai.ainda_TemJogo()) this.proximo.executar(); else {
-            printCentral("Game Over!!!!");
-        }
+        //if (this.pai.ainda_TemJogo()) this.proximo.executar(); else {
+        //    printCentral("Game Over!!!!");
+        //}
     }
     private void newRandom(){
         if (this.modo == 6){

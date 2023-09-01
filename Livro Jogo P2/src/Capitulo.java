@@ -1,12 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Capitulo extends GUtil {
     protected List<String> Dialogo;
     protected List<Escolha> Escolha;
     protected Personagem nameNPC;
-    protected Scanner scan;
     protected Personagem pjPrincipal;
 
 
@@ -38,24 +36,12 @@ public class Capitulo extends GUtil {
         pjPrincipal.set_Item(nameNPC.get_drop());
     }
     public void start_Combate(){
-        Batalha luta = new Batalha(pjPrincipal, nameNPC, scan);
-        luta.Run();
+        Batalha luta = new Batalha(pjPrincipal, nameNPC);
+        luta.RunOnDialog();
     }
 
     public void aplicarDano(double d){
         this.pjPrincipal.set_damage(Math.round(d*nameNPC.get_atk()));
-    }
-    protected void mostrar(){
-        String temp;
-        for (String s: this.Dialogo){
-            temp = String.copyValueOf(s.toCharArray());
-            temp = temp.replace("NPC", nameNPC.get_name());
-            temp = temp.replace("PLAYER", pjPrincipal.get_name());
-            print(temp);
-        }
-        for (Escolha e: this.Escolha){
-            if (e.verificar_escolha_possivel()) print("> "+e.get_texto());
-        }
     }
     public String get_NpcName(){
         return this.nameNPC.get_name();
@@ -69,45 +55,28 @@ public class Capitulo extends GUtil {
     public void addDialogo(String dia){
         this.Dialogo.add(dia);
     }
-    public Capitulo(Scanner s, Personagem pj){
+    public Capitulo(Personagem pj){
         this.Dialogo = new ArrayList<String>();
         this.Escolha = new ArrayList<Escolha>();
-        this.scan = s;
+        //this.scan = s;
         this.pjPrincipal = pj;
     }
-    protected int verificar_id(String s){
-        int cont = 0;
+    
+    public String dialogoCapitulo(){
+        String retorno = "";
+        for (String s: this.Dialogo){
+            retorno += String.copyValueOf(s.toCharArray()) + "\n";
+        }
+        retorno = retorno.replace("NPC", nameNPC.get_name());
+        retorno = retorno.replace("PLAYER", pjPrincipal.get_name());
+        return retorno;
+    }
+    public ArrayList<String> get_Escolhas(){
+        ArrayList<String> retorno = new ArrayList<String>();
         for (Escolha esc: this.Escolha){
-            if (esc.get_texto().equalsIgnoreCase(s) && esc.verificar_escolha_possivel()){
-                return cont;
-            } else {
-                cont++;
-            }
+            if (esc.verificar_escolha_possivel()) retorno.add(esc.get_texto());
         }
-        return -1;
-    }
-    protected int escolher(){
-        if (this.Escolha.size() > 0){
-            String ler = this.scan.nextLine();
-            int id = verificar_id(ler);
-            while (id < 0){
-                print("Opção invalida, tente novamente!!");
-                ler = this.scan.nextLine();
-                id = verificar_id(ler);
-            }
-            return id;
-        } else {
-            return -1;
-        }
-        
-    }
-    public void executar(){
-        this.mostrar();
-        int retorno = this.escolher();
-        if (retorno >= 0) {
-            this.pjPrincipal.setIDHistoria(this.Escolha.get(retorno).get_id_capitulo());
-            this.Escolha.get(retorno).next();
-        }
+        return retorno;
     }
     public void ativarEscolhas(List<Capitulo> ListaCapitulos){
         for (Escolha esc: this.Escolha){
@@ -117,5 +86,11 @@ public class Capitulo extends GUtil {
     public void currarMonstro() {
         this.pjPrincipal.recuperar_Vida(this.nameNPC.get_atk()*5);
         this.pjPrincipal.showData();
+    }
+    public Capitulo getProximoCapitulo(String txt){
+        for (Escolha esc: this.Escolha){
+            if (esc.get_texto().equals(txt)) return esc.getProximo();
+        }
+        return null;
     }
 }
