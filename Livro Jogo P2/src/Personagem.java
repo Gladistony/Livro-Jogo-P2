@@ -5,21 +5,22 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
-public class Personagem implements Serializable{
+public class Personagem extends GUtil implements Serializable{
     private String nome = "X";
     private String drop;
     private int HpAtual, HpMax;
     private int Atk, Def;
     private Inventario Bag;
-    private int IDHistoria = 0;
+    private int IDHistoria;
     private String dataInventario;
     
     public String getDataInventario() {
         return dataInventario;
     }
 
-    public int getIDHistoriaPJ() {
+    public int getIDHistoria() {
         return IDHistoria;
     }
     public void apagarItem(String i){
@@ -72,7 +73,7 @@ public class Personagem implements Serializable{
             this.HpAtual = ret.get_hp();
             this.Atk = ret.get_atk();
             this.Def = ret.getDef();
-            this.IDHistoria = ret.getIDHistoriaPJ();
+            this.IDHistoria = ret.getIDHistoria();
             for (String item : ret.getBoxItem()) {
                 this.Bag.Add(item);
             }
@@ -88,9 +89,9 @@ public class Personagem implements Serializable{
         this.IDHistoria = 0;
     }
 
-    public void criarJogaodor(String scan){
-        //print("Digite o nome do seu personagem principal");
-        this.nome = scan;//.nextLine();
+    public void criarJogaodor(Scanner scan){
+        print("Digite o nome do seu personagem principal");
+        this.nome = scan.nextLine();
         this.Atk = 20;
         this.HpMax = 100;
         this.HpAtual = this.HpMax;
@@ -137,7 +138,7 @@ public class Personagem implements Serializable{
 
 
     public void set_real_damage(long l){
-        GUtil.print(this.nome + " recebeu "+ l + " pontos de dano");
+        print(this.nome + " recebeu "+ l + " pontos de dano");
         this.HpAtual -= l;
         if (this.HpAtual < 0){
             this.HpAtual = 0;
@@ -145,7 +146,7 @@ public class Personagem implements Serializable{
     }
     public void set_damage(long l){
         long danorec = Math.max(0, l-this.Def);
-        GUtil.print(this.nome + " recebeu "+ danorec + " pontos de dano");
+        print(this.nome + " recebeu "+ danorec + " pontos de dano");
         this.HpAtual -= danorec;
         if (this.HpAtual < 0){
             this.HpAtual = 0;
@@ -154,7 +155,7 @@ public class Personagem implements Serializable{
     public void recuperar_Vida(int valor){
         this.HpAtual += valor;
         if (this.HpAtual > this.HpMax) this.HpAtual = this.HpMax;
-        GUtil.print(nome + " recuperou "+ valor +" pontos de vida");
+        print(nome + " recuperou "+ valor +" pontos de vida");
     }
 
     //------------------------------------------------------------------------
@@ -176,12 +177,12 @@ public class Personagem implements Serializable{
     public boolean vivo() {
         return this.HpAtual > 0;
     }
-    public String showData() {
+    public void showData() {
         if (vivo()){
             Bag.compactar();
-            return (this.nome +" - "+ this.HpAtual + " / "+ this.HpMax +" Inventario: "+Bag.listar());
+            print(this.nome +" - "+ this.HpAtual + " / "+ this.HpMax +" Inventario: "+Bag.listar());
         } else {
-            return (this.nome + " está morto");
+            print(this.nome + " está morto");
         }
     }
 }
